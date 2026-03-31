@@ -1,5 +1,5 @@
 
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
 
 export default function App() {
  const tarefas =[
@@ -22,6 +22,9 @@ export default function App() {
 
 
      />
+
+     <TouchableOpacity style ={styles.btnAdicionar}>
+      <Text>Adicionar Tarefa</Text> </TouchableOpacity>
      </View>
   
   ) ;
@@ -43,8 +46,18 @@ const styles = StyleSheet.create({
     padding:15,
     marginTop:10,
     backgroundColor:'#e25858ff',
-    borderRadius:5
+    borderRadius:5,
     
+    
+   },
+   btnAdicionar:{
+    width:'90%',
+    backgroundColor: '#22c55e',
+    margin:15,
+    height:40,
+    borderRadius:5 ,
+    justifyContent: 'center',
+    alignItems: 'center'
    }
   }
 );
