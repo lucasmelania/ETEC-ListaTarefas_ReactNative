@@ -1,13 +1,28 @@
 
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { TextInput } from 'react-native-web';
+import { useState } from 'react';
+
 
 export default function App() {
- const tarefas =[
-{id: "1",titulo: "Aprender Git"},
-{id: "2",titulo: "Aprender a fazer commit"},
-{id: "3",titulo: "Aprender utilizar o Github"},
+const [tarefas,setTarefas] = useState([
 
-]
+    {id: "1",titulo: "Aprender Git"},
+    {id: "2",titulo: "Aprender a fazer commit"},
+    {id: "3",titulo: "Aprender utilizar o Github"},
+    
+])
+
+const[novaTarefa,setnovaTarefa] = useState('');
+
+function addTarefa(){
+
+  const task = [{
+
+    id : String(Date.now()),
+    titulo : novaTarefa
+  }]
+}
 
   return (
     <View style = {styles.container1}>
@@ -21,6 +36,15 @@ export default function App() {
       )}
 
 
+     />
+
+     <TextInput
+
+     style={styles.input}
+     value= {novaTarefa}
+     onChangeText={(texto)=> setnovaTarefa(texto) }
+     placeholder='Digite uma tarefa'
+     textAlign='center'
      />
 
      <TouchableOpacity style ={styles.btnAdicionar}>
@@ -58,6 +82,21 @@ const styles = StyleSheet.create({
     borderRadius:5 ,
     justifyContent: 'center',
     alignItems: 'center'
+   },
+   input:{
+    borderWidth:1,
+    width:'90%',
+    margin:15,
+    borderColor:'#ccc',
+    padding:10,
+    marginBottom:10,
+    borderRadius:5,
+    backgroundColor:'white',
+    textAlign:'center'
+
+
+
+
    }
   }
 );
